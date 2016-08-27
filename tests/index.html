@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../src/jquery/jquery-1.12.4.min.js"></script>
+    <script src="../src/img.canvas.min.js"></script>
+</head>
+<body>
+<input type="file" id="pic">
+<br/>
+<img id="img1" src="" alt="" onclick="roate(this)">
+<img id="img2" src="" alt="" onclick="roate(this)">
+<img id="img3" src="" alt="">
+</body>
+<script>
+    $(function () {
+        $('#pic').change(function (e) {
+            CanvasCompress(e, 200, 200, function (data) {
+                $("#img1").get(0).src = data;
+            })
+            CanvasCompress(e, 200, 0, function (data) {
+                $("#img2").get(0).src = data;
+            })
+        })
+    })
+
+    function roate(e) {
+        console.log(e);
+        // 旋转
+        CanvasRotate(e.src, function (data) {
+            e.src = data;
+        })
+        // 居中切出
+        CanvasImgCompress(e.src, 100, 100, function (data) {
+            $("#img3").get(0).src = data;
+        })
+    }
+</script>
+</html>
