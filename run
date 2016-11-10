@@ -1,7 +1,7 @@
 #!/usr/bin/env php
 <?php
 $root = __DIR__ . '/src';
-$file = $root . '/all.js';
+$file = $root . '/xjs.js';
 $data = "";
 foreach (glob($root . '/*.min.js') as $v) {
     $data .= file_get_contents($v) . "\n";
