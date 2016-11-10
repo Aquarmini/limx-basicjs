@@ -1,0 +1,10 @@
+#!/usr/bin/env php
+<?php
+$root = __DIR__ . '/src';
+$file = $root . '/all.js';
+$data = "";
+foreach (glob($root . '/*.min.js') as $v) {
+    $data .= file_get_contents($v) . "\n";
+}
+file_put_contents($file, $data);
+echo "END\n";
